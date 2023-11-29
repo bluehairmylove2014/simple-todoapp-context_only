@@ -1,0 +1,30 @@
+import axiosLib, { isAxiosError, AxiosError } from 'axios';
+const axiosInstance = axiosLib.create();
+const mockParams = {
+      method,
+      url: isUseProxy ? url : getApiUrl(isProduction) + url,
+      data,
+      params,
+      headers,
+      signal,
+      withCredentials,
+    };
+    window && window.addEventListener('beforeunload', this.cancelRequest);
+    const response = await (!isProduction
+      ? axios(mockParams)
+      : getAxiosNormalInstance()(mockParams));
+
+
+
+
+import AxiosMockAdapter from 'axios-mock-adapter';
+const axiosMockAdapterInstance = new AxiosMockAdapter(axiosMockInstance, {
+  delayResponse: MOCK_API.DELAY_RESPONSE_MOCK_API,
+});
+import { axiosMockAdapterInstance } from '../../config/axios';
+import adsData from '../data/ads.json';
+axiosMockAdapterInstance
+  .onGet(...)
+  .reply((config: any) => {
+    return [200, adsData];
+  });

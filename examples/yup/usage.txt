@@ -1,0 +1,8 @@
+
+  const resolver = useYupValidationResolver(loginSchema);
+  const { control, handleSubmit } = useForm<loginFormData>({
+    defaultValues: Object.fromEntries(
+      authInputList.map(({ name }) => [name, ''])
+    ),
+    resolver,
+  });
