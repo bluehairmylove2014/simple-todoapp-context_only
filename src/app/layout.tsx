@@ -2,7 +2,6 @@ import TodoHeader from "@/components/organisms/TodoHeader";
 import "./globals.scss";
 import { Montserrat } from "next/font/google";
 import Menu from "@/components/organisms/Menu";
-import { TaskContextProvider } from "@/contexts";
 import Notification from "@/components/atoms/Notification";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -20,23 +19,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <TaskContextProvider>
-          <Notification />
-          <div className="grid grid-cols-4 grid-rows-6 bg-white w-screen h-screen">
-            {/* Menu on the left */}
-            <div className=" col-span-1 row-span-6 col-start-1 row-start-1">
-              <Menu />
-            </div>
-            {/* Header on top of main */}
-            <div className=" col-span-3 row-span-1 col-start-2 row-start-1 px-4">
-              <TodoHeader />
-            </div>
-            {/* Main content (pages) */}
-            <div className=" col-span-3 row-span-5 col-start-2 row-start-2 px-4">
-              {children}
-            </div>
+        <Notification />
+        <div className="grid grid-cols-4 grid-rows-6 bg-white w-screen h-screen">
+          {/* Menu on the left */}
+          <div className=" col-span-1 row-span-6 col-start-1 row-start-1">
+            <Menu />
           </div>
-        </TaskContextProvider>
+          {/* Header on top of main */}
+          <div className=" col-span-3 row-span-1 col-start-2 row-start-1 px-4">
+            <TodoHeader />
+          </div>
+          {/* Main content (pages) */}
+          <div className=" col-span-3 row-span-5 col-start-2 row-start-2 px-4">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

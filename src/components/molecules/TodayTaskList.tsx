@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Checkbox from "../atoms/Checkbox";
-import { useTaskContext } from "@/contexts";
+// import { useTaskContext } from "@/contexts";
 
 const mock = [
   {
@@ -78,13 +78,13 @@ const mock = [
 
 function TodayTaskList() {
   // form control
-  // const taskData = mock;
-  const { state, dispatch } = useTaskContext();
-  const [taskData, setTaskData] = useState(state.taskList);
+  const taskData = mock;
+  // const { state, dispatch } = useTaskContext();
+  // const [taskData, setTaskData] = useState(state.taskList);
 
-  useEffect(() => {
-    setTaskData(state.taskList);
-  }, [state.taskList]);
+  // useEffect(() => {
+  //   setTaskData(state.taskList);
+  // }, [state.taskList]);
 
   const handleCheckboxChangeValue = ({
     taskId,
@@ -93,13 +93,13 @@ function TodayTaskList() {
     taskId: number;
     value: boolean;
   }) => {
-    dispatch({
-      type: "UPDATE_COMPLETE_TASK_ACTION",
-      payload: {
-        id: taskId,
-        isComplete: value,
-      },
-    });
+    // dispatch({
+    //   type: "UPDATE_COMPLETE_TASK_ACTION",
+    //   payload: {
+    //     id: taskId,
+    //     isComplete: value,
+    //   },
+    // });
   };
 
   return (
