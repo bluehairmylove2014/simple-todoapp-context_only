@@ -39,7 +39,7 @@ function TaskDetail({ template }: { template: templateType }) {
     <aside
       id="task-detail"
       ref={taskDetailRef}
-      className=" transition-all w-0 opacity-0 h-full fixed right-0 top-0 p-4"
+      className=" transition-all w-0 opacity-0 h-full fixed z-40 right-0 top-0 p-4"
     >
       <div className="shadow-[rgba(0,_0,_0,_0.25)_0px_0px_50px_-12px] bg-zinc-100 h-full w-full rounded-xl p-5 flex flex-col justify-between items-start">
         <div className="flex flex-shrink justify-between items-center w-full">

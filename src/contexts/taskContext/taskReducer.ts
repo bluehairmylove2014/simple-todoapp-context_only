@@ -1,4 +1,5 @@
 "use client";
+import { TASK_DATA_LS_KEY } from "@/constants/localStorageKey";
 import { TaskAction, TaskState } from "./type";
 
 export const taskReducer = (
@@ -8,6 +9,7 @@ export const taskReducer = (
   try {
     switch (action.type) {
       case "SET_TASK_ACTION":
+        localStorage.setItem(TASK_DATA_LS_KEY, JSON.stringify(action.payload));
         return {
           ...state,
           taskList: action.payload,
@@ -15,12 +17,15 @@ export const taskReducer = (
       case "UPDATE_COMPLETE_TASK_ACTION":
         const newState = state.taskList.map((task) => {
           if (task.id !== action.payload.id) return task;
-          else
+          else {
             return {
               ...task,
               isComplete: action.payload.isComplete,
             };
+          }
         });
+
+        localStorage.setItem(TASK_DATA_LS_KEY, JSON.stringify(newState));
         return {
           ...state,
           taskList: newState,
