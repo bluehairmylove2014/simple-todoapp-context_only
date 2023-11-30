@@ -1,10 +1,19 @@
 "use client";
-// import { MOCK_TASK_DATA } from "@/constants/taskMockVal";
-// import { useTaskContext } from "@/contexts";
+import { MOCK_TASK_DATA } from "@/constants/taskMockVal";
+import { useTaskContext } from "@/contexts";
 import { usePathname } from "next/navigation";
+import debounce from "lodash/debounce";
 
 function TodoHeader() {
   const pathName = usePathname();
+  const { dispatch } = useTaskContext();
+
+  const handleChange = debounce((value: string) => {
+    dispatch({
+      type: "FILTER_ACTION",
+      payload: value,
+    });
+  }, 500);
 
   return (
     <header className="flex flex-row justify-between items-start w-full h-full mt-6">
@@ -17,7 +26,7 @@ function TodoHeader() {
           id="search-box"
           placeholder="Search..."
           className=" bg-transparent outline-none absolute top-0 left-0 w-full h-full z-0 px-7 text-xs"
-          // onChange={(e) => handleChange(e.target.value.trim())}
+          onChange={(e) => handleChange(e.target.value.trim())}
         />
       </div>
     </header>

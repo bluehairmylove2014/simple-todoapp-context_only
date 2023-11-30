@@ -24,7 +24,7 @@ Nếu thấy dòng chữ `Success! Created <tên dự án> at...` thì bạn đ�
 Chúng ta sẽ cài đặt các thư viện hỗ trợ với npm như sau:
 
 ```dependency
-npm install @flaticon/flaticon-uicons@latest axios@^1.6.2 react-hook-form@^7.48.2 sonner@^1.2.2 yup@^1.3.2 sharp@latest --save
+npm install @flaticon/flaticon-uicons@latest axios@^1.6.2 react-hook-form@^7.48.2 sonner@^1.2.2 yup@^1.3.2 sharp@latest lodash@latest --save
 
 ```
 

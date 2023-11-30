@@ -5,8 +5,11 @@ import TodayTaskList from "@/components/molecules/TodayTaskList";
 function page() {
   return (
     <main className="w-full h-full bg-inherit">
+      {/* Button add new task */}
       <AddNewTaskBtn />
+      {/* List of task */}
       <TodayTaskList />
+      {/* Popup to create task */}
       <TaskDetail template="create" />
     </main>
   );

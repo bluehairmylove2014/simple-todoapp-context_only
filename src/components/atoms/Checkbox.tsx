@@ -3,7 +3,7 @@
 type checkboxParams = {
   tid: number;
   defaultValue?: boolean;
-  onChange: (params: any) => void;
+  onChange?: (params: any) => void;
 };
 function Checkbox({ tid, defaultValue, onChange }: checkboxParams) {
   return (
@@ -13,7 +13,7 @@ function Checkbox({ tid, defaultValue, onChange }: checkboxParams) {
         type="checkbox"
         defaultChecked={defaultValue}
         onChange={(e) => {
-          onChange({ taskId: tid, value: e.target.checked });
+          onChange && onChange({ taskId: tid, value: e.target.checked });
         }}
       />
     </div>
