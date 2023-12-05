@@ -3,10 +3,8 @@ import Tasks from "../molecules/Tasks";
 import UserList from "../molecules/UserList";
 import Tags from "../molecules/Tags";
 import MenuSearchBox from "../molecules/MenuSearchBox";
-import { useLogout } from "@/hooks/auth/logout";
 
 function Menu() {
-  const { onLogout } = useLogout();
   return (
     <aside className="w-full h-full p-4 bg-inherit">
       <div className="bg-zinc-100 p-5 w-full h-full flex flex-col justify-between items-start rounded-xl overflow-hidden">
@@ -33,10 +31,7 @@ function Menu() {
             <i className="fi fi-br-settings-sliders"></i>
             <span className="ml-3">Setting</span>
           </button>
-          <button
-            onClick={() => onLogout()}
-            className=" text-xs font-semibold w-full bg hover:bg-zinc-300 transition-colors px-2 py-1 rounded opacity-70 hover:opacity-100 text-left"
-          >
+          <button className=" text-xs font-semibold w-full bg hover:bg-zinc-300 transition-colors px-2 py-1 rounded opacity-70 hover:opacity-100 text-left">
             <i className="fi fi-br-exit"></i>
             <span className="ml-3">Sign out</span>
           </button>
