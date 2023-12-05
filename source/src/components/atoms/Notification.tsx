@@ -1,4 +1,4 @@
-import { Toaster, toast } from "sonner";
+import { Toaster, toast } from 'sonner';
 
 export type notificationContentType = string;
 

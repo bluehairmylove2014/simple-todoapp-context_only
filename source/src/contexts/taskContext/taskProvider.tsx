@@ -3,8 +3,7 @@
 import React, { useEffect, useReducer } from "react";
 import { TaskContext } from "./taskContext";
 import { taskReducer } from "./taskReducer";
-import { useGetTask } from "@/hooks/task";
-import { useNotification } from "@/components/atoms/Notification";
+import { MOCK_TASK_DATA } from "@/constants/taskMockVal";
 
 type taskContextProviderType = {
   children: React.ReactNode;
@@ -15,18 +14,13 @@ export const TaskContextProvider: React.FC<taskContextProviderType> = ({
   const [state, dispatch] = useReducer(taskReducer, {
     taskList: [],
   });
-  const { onGetTask } = useGetTask();
-  const { showError } = useNotification();
 
   useEffect(() => {
-    onGetTask()
-      .then((taskData) =>
-        dispatch({
-          type: "SET_TASK_ACTION",
-          payload: taskData,
-        })
-      )
-      .catch((error) => showError(error.message));
+    // CALL API
+    dispatch({
+      type: "SET_TASK_ACTION",
+      payload: MOCK_TASK_DATA,
+    });
   }, []);
 
   return (
